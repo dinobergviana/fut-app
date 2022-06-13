@@ -12,10 +12,10 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {},
 })
 export default class Home extends Vue {
-  private apiKey = 'live_38e06ca1acea3770a689a24d7eac77'
+  // private apiKey = 'live_38e06ca1acea3770a689a24d7eac77'
 
-  // private async created() {
-  //   const response = await axios.get('https://api.api-futebol.com.br/v1/campeonatos', {
+  // private async getPlacing() {
+  //   const response = await axios.get('https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/11', {
   //     headers: {
   //       Authorization: `Bearer ${this.apiKey}`,
   //     },
