@@ -1,5 +1,11 @@
 <template>
   <div class="placing">
-    <h1>Tabela</h1>
   </div>
 </template>
+
+<style lang="less" scoped>
+.placing {
+  width: ~"min(100vw, 800px)";
+  margin: auto;
+}
+</style>

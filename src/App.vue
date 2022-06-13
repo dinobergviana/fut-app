@@ -1,32 +1,73 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Partidas</router-link> |
-      <router-link to="/placing">Classificação</router-link>
+  <div id="app__container">
+    <div class="nav">
+      <div class="nav__title">
+        <span>Brasileirão - Série A</span>
+      </div>
+      <div class="nav__options">
+        <router-link to="/">Partidas</router-link>
+        <router-link to="/placing">Classificação</router-link>
+      </div>
     </div>
-    <router-view/>
+    <div class="views">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-#nav {
-  padding: 30px;
+#app__container {
+  min-height: 100vh;
+  background-color: #303134;
+}
+
+.nav {
+  background-color: #10502f;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0);
+}
+
+.nav__title {
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.nav__options {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 20px;
+
+  height: 100px;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    text-transform: uppercase;
     text-decoration: none;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 12px;
+    font-weight: bold;
+
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+      background: rgba(43, 168, 91, 0.2);
+    }
 
     &.router-link-exact-active {
-      color: #42b983;
+      opacity: 1;
+      border-bottom: 3px solid #fff;
+      background: rgba(43, 168, 91, 0.2);
     }
   }
 }
