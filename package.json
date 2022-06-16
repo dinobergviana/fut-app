@@ -49,6 +49,8 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "camelcase": "off",
+      "lines-between-class-members": "off",
       "class-methods-use-this": [
         "error",
         {

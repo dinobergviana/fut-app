@@ -2,45 +2,25 @@
   <div class="rounds__container">
     <div class="rounds__content">
       <div class="rounds__content--title">
-        <span>Rodada 11 de 38</span>
+        <span>Rodada {{ matchNumber }} de 38</span>
       </div>
       <div class="rounds__content--matches">
-        <div class="match-day-container">
+        <div v-for="(match, index) in matchesOfTheDay" class="match-day-container" :key="index">
           <!-- where the teams will stay -->
           <div class="match-day-teams">
             <div class="team">
               <div>
-                <img src="https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c95084cb.svg" alt="">
-                <span>Flamengo</span>
+                <img :src="match.time_mandante.escudo" alt="">
+                <span>{{ match.time_mandante.nome_popular }}</span>
               </div>
-              <span>0</span>
+              <span>{{ match.placar_mandante }}</span>
             </div>
             <div class="team">
               <div>
-                <img src="https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999e4424264.svg" alt="">
-                <span>Cuiabá</span>
+                <img :src="match.time_visitante.escudo" alt="">
+                <span>{{ match.time_visitante.nome_popular }}</span>
               </div>
-              <span>0</span>
-            </div>
-          </div>
-          <!-- where the info about status e date will stay -->
-          <div class="match-day-info">
-            <div>
-              <span>FIM</span>
-              <span>Ter, 07/06</span>
-            </div>
-          </div>
-        </div>
-        <div class="match-day-container">
-          <!-- where the teams will stay -->
-          <div class="match-day-teams">
-            <div class="team">
-              <span>Flamengo</span>
-              <span>0</span>
-            </div>
-            <div class="team">
-              <span>Cuiabá</span>
-              <span>0</span>
+              <span>{{ match.placar_visitante }}</span>
             </div>
           </div>
           <!-- where the info about status e date will stay -->
@@ -58,12 +38,30 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import matchesMock from '@/assets/mocks/matches';
 // import axios from 'axios';
+
+interface ITeam {
+  nome_popular: string;
+  escudo: string;
+}
+
+interface IMatchData {
+  time_mandante: ITeam;
+  time_visitante: ITeam;
+  placar_mandante: number | null;
+  placar_visitante: number | null;
+  status: string;
+  data_realizacao: string;
+}
 
 @Component({
   components: {},
 })
 export default class Home extends Vue {
+  public matchesOfTheDay!: IMatchData[];
+  public matchNumber = 0;
+
   // private apiKey = 'live_38e06ca1acea3770a689a24d7eac77'
   // private async getPlacing() {
   //   const response = await axios.get('https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/11', {
@@ -73,6 +71,16 @@ export default class Home extends Vue {
   //   });
   //   console.log(response);
   // }
+
+  // eslint-disable-next-line class-methods-use-this
+  private setMatches() {
+    this.matchNumber = matchesMock.matches.rodada;
+    this.matchesOfTheDay = matchesMock.matches.partidas;
+  }
+
+  private created() {
+    this.setMatches();
+  }
 }
 </script>
 
@@ -93,11 +101,11 @@ export default class Home extends Vue {
     color: #bdc1c6;
     background: #202124;
     border-top: 1px solid #3c4043;
-    border-bottom: 1px solid #3c4043;
 
     .match-day-container {
       display: grid;
       grid-template-columns: 2fr 1fr;
+      border-bottom: 1px solid #3c4043;
 
       &:not(:last-child) {
         border-right: 1px solid #3c4043;
