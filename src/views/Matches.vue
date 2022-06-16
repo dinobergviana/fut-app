@@ -65,7 +65,6 @@ interface IMatchData {
       return status[0].toUpperCase() + status.slice(1, status.length);
     },
     matchDate(date: string): string {
-      console.log(date);
       return date;
     },
   },
