@@ -89,13 +89,17 @@ export default class Placing extends Vue {
   display: block;
   width: 100%;
   overflow-x: auto;
-  padding-bottom: 10px;
+  border-right: 1px solid #3c4043;
+  border-left: 1px solid #3c4043;
 
   table {
     width: 100%;
+    border-spacing: 0 0;
     color: #bdc1c6;
 
     thead tr {
+      background-color: #171717;
+
       .th__club {
         min-width: 260px;
         text-align: left;
@@ -108,7 +112,9 @@ export default class Placing extends Vue {
 
     tbody tr {
       td {
-        padding: 5px 15px;
+        border-bottom: 1px solid #3c4043;
+        padding: 10px 15px;
+        background: #202124;
 
         .club-image {
           display: flex;
