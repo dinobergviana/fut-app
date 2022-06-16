@@ -42,7 +42,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import matchesMock from '@/assets/mocks/matches';
 // import axios from 'axios';
 
-interface ITeam {
+export interface ITeam {
   nome_popular: string;
   escudo: string;
 }
@@ -102,7 +102,7 @@ export default class Home extends Vue {
   .rounds__content--title {
     background: #171717;
     color: #bdc1c6;
-    padding: 10px 20px;
+    padding: 15px 10px;
   }
 
   .rounds__content--matches {
