@@ -42,7 +42,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import matchesMock from '@/assets/mocks/matches';
 // import axios from 'axios';
 
-interface ITeam {
+export interface ITeam {
   nome_popular: string;
   escudo: string;
 }
