@@ -9,11 +9,17 @@
           <!-- where the teams will stay -->
           <div class="match-day-teams">
             <div class="team">
-              <span>Flamengo</span>
+              <div>
+                <img src="https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c95084cb.svg" alt="">
+                <span>Flamengo</span>
+              </div>
               <span>0</span>
             </div>
             <div class="team">
-              <span>Cuiabá</span>
+              <div>
+                <img src="https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999e4424264.svg" alt="">
+                <span>Cuiabá</span>
+              </div>
               <span>0</span>
             </div>
           </div>
@@ -103,6 +109,18 @@ export default class Home extends Vue {
           display: flex;
           align-items: center;
           justify-content: space-between;
+
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            img {
+              margin: 0;
+              height: 24px;
+            }
+          }
         }
       }
 
