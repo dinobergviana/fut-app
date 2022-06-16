@@ -26,7 +26,7 @@
           <!-- where the info about status e date will stay -->
           <div class="match-day-info">
             <div>
-              <span>FIM</span>
+              <span>{{ match.status | matchStatus }}</span>
               <span>Ter, 07/06</span>
             </div>
           </div>
@@ -56,7 +56,14 @@ interface IMatchData {
 }
 
 @Component({
-  components: {},
+  filters: {
+    matchStatus(status: string): string {
+      if (status === 'finalizado') {
+        return 'FIM';
+      }
+      return status[0].toUpperCase() + status.slice(1, status.length);
+    },
+  },
 })
 export default class Home extends Vue {
   public matchesOfTheDay!: IMatchData[];
@@ -72,13 +79,12 @@ export default class Home extends Vue {
   //   console.log(response);
   // }
 
-  // eslint-disable-next-line class-methods-use-this
-  private setMatches() {
+  private setMatches(): void {
     this.matchNumber = matchesMock.matches.rodada;
     this.matchesOfTheDay = matchesMock.matches.partidas;
   }
 
-  private created() {
+  private created(): void {
     this.setMatches();
   }
 }
