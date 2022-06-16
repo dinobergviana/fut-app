@@ -27,7 +27,8 @@
           <div class="match-day-info">
             <div>
               <span>{{ match.status | matchStatus }}</span>
-              <span>Ter, 07/06</span>
+              <span>{{ match.data_realizacao | matchDate }}</span>
+              <span>{{ match.hora_realizacao }}</span>
             </div>
           </div>
         </div>
@@ -62,6 +63,10 @@ interface IMatchData {
         return 'FIM';
       }
       return status[0].toUpperCase() + status.slice(1, status.length);
+    },
+    matchDate(date: string): string {
+      console.log(date);
+      return date;
     },
   },
 })
@@ -153,6 +158,7 @@ export default class Home extends Vue {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          font-size: 14px;
         }
       }
     }
