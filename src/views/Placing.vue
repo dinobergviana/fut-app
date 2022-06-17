@@ -38,7 +38,7 @@
             <td class="td__last-five">
               <img
                 v-for="(item, index) in team.ultimos_jogos"
-                :key="team.posicao + index" src="../assets/images/check-circle.svg"
+                :key="team.posicao + index" :src="require(`../assets/images/${item}.svg`)"
                 alt=""
               />
             </td>

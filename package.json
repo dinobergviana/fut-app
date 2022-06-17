@@ -49,6 +49,8 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "import/no-dynamic-require": "off",
+      "global-require": "off",
       "camelcase": "off",
       "lines-between-class-members": "off",
       "class-methods-use-this": [
